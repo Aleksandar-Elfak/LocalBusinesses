@@ -35,9 +35,7 @@ namespace Server
                     builder.AllowAnyHeader().AllowAnyMethod().WithOrigins(new string[]
 
                     {
-
                         "http://127.0.0.1:5500"
-
                     });
 
                 });
