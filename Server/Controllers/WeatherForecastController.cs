@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Neo4j.Driver;
-using Neo4jClient;
 
 namespace Server.Controllers;
 
