@@ -4,7 +4,7 @@ namespace Server.Services
 {
     public class Neo4JDriver
     {
-        private IAsyncSession session;
+        private IAsyncSession? session;
         public IAsyncSession Session 
         {
             get
