@@ -54,7 +54,7 @@ namespace Server.Services
         public async Task<List<Business>> SearchBusinesses(string tag)
         {
             List<Business> businesses = new List<Business>();
-            var list = await(await Session.RunAsync($"Match (b:Business)-[:tagged]->(t:tag) where t.tag = '{tag}' return b limit 5")).ToListAsync();
+            var list = await(await Session.RunAsync($"Match (b:Business)-[:tagged]->(t:tag) where t.tag = '{tag}' return b order by b.rating desc limit 5")).ToListAsync();
             foreach (var item in list)
             {
                 businesses.Add(item["b"].As<INode>().ToObject<Business>());
