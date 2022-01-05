@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Neo4j.Driver;
 using Server.Services;
+using Server.Models;
 
 namespace Server.Controllers
 {
@@ -17,10 +18,9 @@ namespace Server.Controllers
 
         [HttpGet]
         [Route("GetBusiness/{name}")]
-        public IActionResult GetDeliveries(string name)
+        public  Task<Business> GetBusiness(string name)
         {
-            Task<Models.Business> task = data.GetBusiness(name);
-            return Ok();
+            return  data.GetBusiness(name);
         }
     }
 }
