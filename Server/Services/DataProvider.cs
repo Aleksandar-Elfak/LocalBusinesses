@@ -74,6 +74,11 @@ namespace Server.Services
             }
             return businesses;
         }
+
+        public void DeleteReview(string username, string name)
+        {
+            Session.RunAsync($"MATCH(n {{ username: '{username}'}})-[r: Reviewed]->(b: Business {{ name: '{name}'}}) DELETE r");
+        }
     }
 }
 

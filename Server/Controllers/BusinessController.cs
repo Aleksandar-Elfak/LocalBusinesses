@@ -59,5 +59,13 @@ namespace Server.Controllers
             data.LogIn(user);
             return Ok();
         }
+
+        [HttpDelete]
+        [Route("DeleteReview/{username}&{name}")]
+        public IActionResult DeleteReview(string username, string name)
+        {
+            data.DeleteReview(username, name);
+            return Ok();
+        }
     }
 }
