@@ -20,6 +20,11 @@ namespace Server.Services
             System.Console.WriteLine($"{b.Name} {b.Address} {b.Rating.ToString()}");
             return b;
         }
+
+        public void LogIn(User user)
+        {
+            Session.RunAsync($"Merge (u:User {{username: '{user.Username}', password: '{user.Password}'}})");
+        }
     }
 }
 

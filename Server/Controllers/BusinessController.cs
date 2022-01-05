@@ -18,9 +18,17 @@ namespace Server.Controllers
 
         [HttpGet]
         [Route("GetBusiness/{name}")]
-        public  Task<Business> GetBusiness(string name)
+        public async Task<Business> GetBusiness(string name)
         {
-            return  data.GetBusiness(name);
+            return await data.GetBusiness(name);
+        }
+
+        [HttpPost]
+        [Route("LogIn")]
+        public IActionResult LogIn([FromBody] User user)
+        {
+            data.LogIn(user);
+            return Ok();
         }
     }
 }
