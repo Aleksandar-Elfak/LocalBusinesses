@@ -21,19 +21,19 @@ export class BusinessView {
 		this.container.appendChild(testButton);
 
 		const leftDiv3 = document.createElement("div");
-		leftDiv3.className = "leftDiv3";
+		leftDiv3.className = "leftDiv3 ui segment";
 		leftDiv3.classList.add("bigDiv3");
 		this.container.appendChild(leftDiv3);
 
 		const middleDiv3 = document.createElement("div");
+		middleDiv3.className = "middleDiv3  ui segment";
 		middleDiv3.classList.add("bigDiv3");
-		middleDiv3.classList.add("middleDiv3");
 		this.container.appendChild(middleDiv3);
 
 		const rightDiv3 = document.createElement("div");
 		rightDiv3.innerHTML = "rightDiv3";
+		rightDiv3.className = "rightDiv3  ui segment";
 		rightDiv3.classList.add("bigDiv3");
-		rightDiv3.classList.add("rightDiv3");
 		this.container.appendChild(rightDiv3);
 
 		// tri glavna diva

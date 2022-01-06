@@ -46,15 +46,16 @@ export class UserView {
 
 		const inputSearch2 = document.createElement("input");
 		inputSearch2.className = "inputSearch2";
+		inputSearch2.className = "ui input";
 		searchDiv2.appendChild(inputSearch2);
 
 		const buttonSearch2 = document.createElement("button");
 		buttonSearch2.innerHTML = "Run";
+		buttonSearch2.className = "ui button basic black";
 		searchDiv2.appendChild(buttonSearch2);
 
 		buttonSearch2.onclick = () => {
 			const tag = this.container.querySelector(".inputSearch2").value;
-			console.log(tag);
 			fetch("https://localhost:7294/Business/SearchBusinesses/" + tag).then(
 				(p) => {
 					p.json().then((bus) => {
@@ -70,7 +71,6 @@ export class UserView {
 								b.type
 							);
 							//gradovi.push(grad);
-							console.log(business);
 							let businessCardDiv2 = document.createElement("div");
 							businessCardDiv2.className = "businessCardDiv2";
 							leftDiv2.appendChild(businessCardDiv2);
@@ -113,7 +113,6 @@ export class UserView {
 						b.type
 					);
 					//gradovi.push(grad);
-					console.log(business);
 					let businessCardDiv2 = document.createElement("div");
 					businessCardDiv2.className = "businessCardDiv2";
 					middleDiv2.appendChild(businessCardDiv2);
@@ -142,7 +141,6 @@ export class UserView {
 			"https://localhost:7294/Business/GetUsernameReviews/" + this.username
 		).then((p) => {
 			p.json().then((bus) => {
-				console.log(bus);
 				bus.forEach((b) => {
 					const rev = new UserReview(b.name, b.review, b.rating);
 					let reviewCard = document.createElement("div");

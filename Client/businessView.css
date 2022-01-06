@@ -1,37 +1,38 @@
 .businessView {
-  display: flex;
-  justify-content: space-around;
-  font-size: large;
+	display: flex;
+	justify-content: space-around;
+	font-size: large;
 }
 
 .bigDiv3 {
-  width: 30%;
-  display: flex;
-  flex-direction: column;
+	width: 30%;
+	display: flex;
+	flex-direction: column;
+	background-color: gold !important;
 }
 
 .leftDiv3 {
-  border: 3px solid black;
+	border: 3px solid black;
 }
 
 .middleDiv3 {
-  border: 3px solid red;
+	border: 3px solid red;
 }
 
 .rightDiv3 {
-  border: 3px solid blue;
+	border: 3px solid blue;
 }
 
 .div3 {
-  margin-bottom: 15px;
+	margin-bottom: 15px;
 }
 
 .ui.segment.price3 {
-  font-size: large;
-  background-color: rgb(244, 247, 71);
-  color: black;
+	font-size: large;
+	background-color: rgb(244, 247, 71);
+	color: black;
 }
 
 .testButton3 {
-  height: fit-content;
+	height: fit-content;
 }
