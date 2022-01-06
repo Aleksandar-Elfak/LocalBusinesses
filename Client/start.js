@@ -1,3 +1,6 @@
+import { UserView } from "./userView.js";
+
+
 export class Start {
     constructor() {
         this.container = null;
@@ -42,5 +45,17 @@ export class Start {
         rightImg.className = "img1";
         rightImg.src = "img1.png"
         right.appendChild(rightImg);
+
+
+        //deo gde se crta user ili biznis
+
+        const testButton = document.createElement("button")
+        testButton.innerHTML = "User";
+        testButton.onclick = () => {
+            document.body.removeChild(this.container);
+            let u = new UserView(this);
+            u.draw();
+        }
+        right.appendChild(testButton);
     }
 }
