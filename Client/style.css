@@ -49,3 +49,46 @@ body {
 	align-self: flex-end;
 	height: 30%;
 }
+
+
+
+
+
+
+.mainDiv2 {
+	display: flex;
+	justify-content: space-around;
+	
+}
+
+.leftDiv2 {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid black;
+}
+
+.searchDiv2 {
+	display: flex;
+}
+
+.businessCardDiv2 {
+	display: flex;
+	border: 1px solid black;
+}
+
+.leftPart2 {
+	display: flex;
+	flex-direction: column;
+
+}
+
+.rightPart2 {
+	display: flex;
+	flex-direction: column;
+}
+
+.middleDiv2 {
+	display: flex;
+	flex-direction: column;
+	background-color:gold;
+}

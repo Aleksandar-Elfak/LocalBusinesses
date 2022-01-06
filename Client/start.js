@@ -66,7 +66,7 @@ export class Start {
 		testButton.innerHTML = "Log in";
 		testButton.onclick = () => {
 			document.body.removeChild(this.container);
-			let u = new UserView(this, "Vule");
+			let u = new UserView(this, "vule");
 			u.draw();
 		};
 		loginDiv.appendChild(testButton);
