@@ -1,0 +1,27 @@
+.businessView {
+  display: flex;
+  justify-content: space-around;
+  font-size: large;
+}
+
+.bigDiv3 {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.leftDiv3 {
+  border: 3px solid black;
+}
+
+.middleDiv3 {
+  border: 3px solid red;
+}
+
+.rightDiv3 {
+  border: 3px solid blue;
+}
+
+.div3 {
+  margin-bottom: 15px;
+}
