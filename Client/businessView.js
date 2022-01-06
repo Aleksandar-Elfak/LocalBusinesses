@@ -94,11 +94,18 @@ export class BusinessView {
     middleDiv3.appendChild(reviewInput);
 
     const priceList = document.createElement("div");
-    let price = data.split(",");
-    for (let i = 0; i < price.length; i++) {
-      priceList.innerHTML += price[i];
-      priceList.innerHTML += "<br/ >";
-      console.log(price[i]);
+
+    const header = document.createElement("h2");
+    header.className = "ui header";
+    header.innerHTML = "Price list";
+    priceList.appendChild(header);
+
+    let priceData = data.split(",");
+    for (let i = 0; i < priceData.length; i++) {
+      const price = document.createElement("div");
+      price.className = "ui segment price3";
+      price.innerHTML += priceData[i];
+      priceList.appendChild(price);
     }
 
     middleDiv3.appendChild(priceList);

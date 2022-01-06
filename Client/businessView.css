@@ -25,3 +25,9 @@
 .div3 {
   margin-bottom: 15px;
 }
+
+.ui.segment.price3 {
+  font-size: large;
+  background-color: rgb(244, 247, 71);
+  color: black;
+}
