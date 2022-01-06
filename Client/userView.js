@@ -1,5 +1,6 @@
 import { BusinessView } from "./businessView.js";
 import { BusinessCard } from "./businessCard.js";
+import { UserReview } from "./userReview.js";
 
 export class UserView {
 	constructor(start, username) {
@@ -13,12 +14,26 @@ export class UserView {
 		this.container.className = "mainDiv2";
 		document.body.appendChild(this.container);
 
+		const botDiv2 = document.createElement("div");
+		botDiv2.className = "botDiv2";
+		this.container.appendChild(botDiv2);
+
+		const backButton2 = document.createElement("button");
+		backButton2.innerHTML = "BACK";
+		backButton2.style.margin = "5px";
+		backButton2.className = "ui button yellow";
+		backButton2.onclick = () => {
+			document.body.removeChild(this.container);
+			this.start.draw(document.body);
+		};
+		this.container.appendChild(backButton2);
+
 		const topDiv2 = document.createElement("div");
 		topDiv2.className = "topDiv2";
 		this.container.appendChild(topDiv2);
 
 		const leftDiv2 = document.createElement("div");
-		leftDiv2.className = "leftDiv2";
+		leftDiv2.className = "leftDiv2 ui segment";
 		topDiv2.appendChild(leftDiv2);
 
 		const searchDiv2 = document.createElement("div");
@@ -74,7 +89,7 @@ export class UserView {
 		};
 
 		const middleDiv2 = document.createElement("div");
-		middleDiv2.className = "middleDiv2";
+		middleDiv2.className = "middleDiv2 ui segment";
 		topDiv2.appendChild(middleDiv2);
 
 		const recommendedDiv2 = document.createElement("h3");
@@ -115,50 +130,28 @@ export class UserView {
 		});
 
 		const rightDiv2 = document.createElement("div");
-		rightDiv2.className = "rightDiv2";
+		rightDiv2.className = "rightDiv2 ui segment";
 		topDiv2.appendChild(rightDiv2);
 
-		fetch("https://localhost:7294/Business/GetReviews/" + this.username).then(
-			(p) => {
-				p.json().then((bus) => {
-					console.log(bus);
-					bus.forEach((b) => {
-						const business = new BusinessCard(
-							b.name,
-							b.address,
-							b.contact,
-							b.description,
-							b.img,
-							b.prices,
-							b.rating,
-							b.type
-						);
-						//gradovi.push(grad);
-						console.log(business);
-						let businessCardDiv2 = document.createElement("div");
-						businessCardDiv2.className = "businessCardDiv2";
-						rightDiv2.appendChild(businessCardDiv2);
-						business.draw(businessCardDiv2);
+		const reviewsTitle = document.createElement("h3");
+		reviewsTitle.innerHTML = "Reviews";
+		reviewsTitle.className = "reviewsTitle2";
+		rightDiv2.appendChild(reviewsTitle);
 
-						businessCardDiv2.onclick = () => {
-							alert("rec");
-						};
-					});
-					//agencija.crtaj(agencija.kontejner, gradovi);
+		fetch(
+			"https://localhost:7294/Business/GetUsernameReviews/" + this.username
+		).then((p) => {
+			p.json().then((bus) => {
+				console.log(bus);
+				bus.forEach((b) => {
+					const rev = new UserReview(b.name, b.review, b.rating);
+					let reviewCard = document.createElement("div");
+					reviewCard.className = "reviewCard";
+					rightDiv2.appendChild(reviewCard);
+					rev.draw(reviewCard);
 				});
-			}
-		);
-
-		const botDiv2 = document.createElement("div");
-		botDiv2.className = "botDiv2";
-		this.container.appendChild(botDiv2);
-
-		const backButton2 = document.createElement("button");
-		backButton2.innerHTML = "back";
-		backButton2.onclick = () => {
-			document.body.removeChild(this.container);
-			this.start.draw(document.body);
-		};
-		this.container.appendChild(backButton2);
+				//agencija.crtaj(agencija.kontejner, gradovi);
+			});
+		});
 	}
 }
