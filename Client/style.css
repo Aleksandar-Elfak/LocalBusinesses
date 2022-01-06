@@ -56,6 +56,12 @@ body {
 
 .mainDiv2 {
 	display: flex;
+	flex-direction: column;
+}
+
+.topDiv2 {
+	display: flex;
+	border: 1px solid black;
 	justify-content: space-around;
 }
 
@@ -63,6 +69,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	border: 1px solid black;
+	background-color: gold;
 }
 
 .searchDiv2 {
@@ -72,22 +79,58 @@ body {
 .businessCardDiv2 {
 	display: flex;
 	border: 1px solid black;
+	margin: 20px;
 }
 
 .leftPart2 {
 	display: flex;
 	flex-direction: column;
+	width: 40%;
+	align-items: flex-start;
 }
 
 .rightPart2 {
 	display: flex;
 	flex-direction: column;
+	width: 60%;
 }
 
 .middleDiv2 {
 	display: flex;
 	flex-direction: column;
 	background-color: gold;
+}
+
+.img2 {
+	height: 80%;
+}
+
+.addressDiv2 {
+	display: flex;
+	flex-grow: 1;
+	margin-top: 10px;
+}
+
+.nameDiv2 {
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.typeDiv2 {
+	margin-left: 15px;
+}
+
+.ratingDiv2 {
+	display: flex;
+}
+
+.recommendedDiv2 {
+	text-align: center;
+}
+
+.inputSearch2 {
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 .rightDiv2 {

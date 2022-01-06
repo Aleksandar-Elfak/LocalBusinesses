@@ -13,9 +13,13 @@ export class UserView {
 		this.container.className = "mainDiv2";
 		document.body.appendChild(this.container);
 
+		const topDiv2 = document.createElement("div");
+		topDiv2.className = "topDiv2";
+		this.container.appendChild(topDiv2);
+
 		const leftDiv2 = document.createElement("div");
 		leftDiv2.className = "leftDiv2";
-		this.container.appendChild(leftDiv2);
+		topDiv2.appendChild(leftDiv2);
 
 		const searchDiv2 = document.createElement("div");
 		searchDiv2.className = "searchDiv2";
@@ -35,6 +39,7 @@ export class UserView {
 
 		buttonSearch2.onclick = () => {
 			const tag = this.container.querySelector(".inputSearch2").value;
+			console.log(tag);
 			fetch("https://localhost:7294/Business/SearchBusinesses/" + tag).then(
 				(p) => {
 					p.json().then((bus) => {
@@ -57,7 +62,9 @@ export class UserView {
 							business.draw(businessCardDiv2);
 
 							businessCardDiv2.onclick = () => {
-								alert("sear");
+								document.body.removeChild(this.container);
+								let u = new BusinessView(this);
+								u.draw();
 							};
 						});
 						//agencija.crtaj(agencija.kontejner, gradovi);
@@ -68,11 +75,12 @@ export class UserView {
 
 		const middleDiv2 = document.createElement("div");
 		middleDiv2.className = "middleDiv2";
-		this.container.appendChild(middleDiv2);
+		topDiv2.appendChild(middleDiv2);
 
-		const recommendedDiv = document.createElement("div");
-		recommendedDiv.innerHTML = "Recommended";
-		middleDiv2.appendChild(recommendedDiv);
+		const recommendedDiv2 = document.createElement("h3");
+		recommendedDiv2.innerHTML = "Recommended";
+		recommendedDiv2.className = "recommendedDiv2";
+		middleDiv2.appendChild(recommendedDiv2);
 
 		fetch(
 			"https://localhost:7294/Business/GetRecommended/" + this.username
@@ -97,7 +105,9 @@ export class UserView {
 					business.draw(businessCardDiv2);
 
 					businessCardDiv2.onclick = () => {
-						alert("rec");
+						document.body.removeChild(this.container);
+						let u = new BusinessView(this);
+						u.draw();
 					};
 				});
 				//agencija.crtaj(agencija.kontejner, gradovi);
@@ -106,7 +116,7 @@ export class UserView {
 
 		const rightDiv2 = document.createElement("div");
 		rightDiv2.className = "rightDiv2";
-		this.container.appendChild(rightDiv2);
+		topDiv2.appendChild(rightDiv2);
 
 		fetch("https://localhost:7294/Business/GetReviews/" + this.username).then(
 			(p) => {
@@ -139,21 +149,16 @@ export class UserView {
 			}
 		);
 
-		const testButton2 = document.createElement("button");
-		testButton2.innerHTML = "back";
-		testButton2.onclick = () => {
+		const botDiv2 = document.createElement("div");
+		botDiv2.className = "botDiv2";
+		this.container.appendChild(botDiv2);
+
+		const backButton2 = document.createElement("button");
+		backButton2.innerHTML = "back";
+		backButton2.onclick = () => {
 			document.body.removeChild(this.container);
 			this.start.draw(document.body);
 		};
-		this.container.appendChild(testButton2);
-
-		const testButton = document.createElement("button");
-		testButton.innerHTML = "User";
-		testButton.onclick = () => {
-			document.body.removeChild(this.container);
-			let u = new BusinessView(this);
-			u.draw();
-		};
-		this.container.appendChild(testButton);
+		this.container.appendChild(backButton2);
 	}
 }
