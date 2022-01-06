@@ -43,9 +43,10 @@ export class UserReview {
 				first = this.username;
 				second = this.name;
 			}
-			fetch(
-				`https://localhost:7294/Business/DeleteReview/${first}&${second}`
-			).then((p) => {
+			fetch(`https://localhost:7294/Business/DeleteReview/${first}&${second}`, {
+				method: "DELETE",
+				headers: { "Content-Type": "application/json" },
+			}).then((p) => {
 				host.removeChild(mainDiv);
 			});
 		};

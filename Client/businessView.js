@@ -173,13 +173,18 @@ export class BusinessView {
 						name: this.username,
 					}),
 				}
-			).then((p) => {
-				const rightDiv3 = document.body.querySelector(".rightDiv3");
-				while (rightDiv3.firstChild) {
-					rightDiv3.removeChild(rightDiv3.lastChild);
-				}
-				this.drawRightDiv(rightDiv3);
-			});
+			)
+				.then((p) => {
+					console.log(p.ok);
+					if (p.ok) {
+						const rightDiv3 = document.body.querySelector(".rightDiv3");
+						while (rightDiv3.firstChild) {
+							rightDiv3.removeChild(rightDiv3.lastChild);
+						}
+						this.drawRightDiv(rightDiv3);
+					}
+				})
+				.finally();
 		};
 		bottom.appendChild(btn);
 	}
