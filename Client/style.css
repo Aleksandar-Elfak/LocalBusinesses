@@ -1,20 +1,51 @@
-body{
-    background-color: rgb(253, 255, 175) !important;
+body {
+	background-color: rgb(253, 255, 175) !important;
 }
 
-.leftDiv1{
-    display: flex;
-    border:  3px solid black;
-    flex-direction: column;
-    justify-content: space-around;
+.leftDiv1 {
+	display: flex;
+	border: 3px solid black;
+	flex-direction: column;
+	justify-content: space-around;
+	margin-left: 50px;
 }
 
-.mainDiv1{
-    display: flex;
-    flex-direction: row;
+.rightDiv1 {
+	display: flex;
+	width: 60%;
 }
 
-.img1{
-    width: 50%;
-    height: auto;
+.mainDiv1 {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-grow: 1;
+}
+
+.title1 {
+	display: flex;
+	flex-direction: column;
+}
+
+.mainTitle1 {
+	font-size: 100px;
+	line-height: 100px;
+}
+
+.subTitle1 {
+	font-size: 50px;
+	line-height: 50px;
+	margin-left: 100px;
+}
+
+.loginDiv1 {
+	border: 3px solid red;
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+}
+
+.img1 {
+	align-self: flex-end;
+	height: 30%;
 }
