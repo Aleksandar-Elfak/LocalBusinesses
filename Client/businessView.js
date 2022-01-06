@@ -10,13 +10,14 @@ export class BusinessView {
     this.container.className = "businessView";
     document.body.appendChild(this.container);
 
-    // const testButton = document.createElement("button");
-    // testButton.innerHTML = "back";
-    // testButton.onclick = () => {
-    //   document.body.removeChild(this.container);
-    //   this.user.draw();
-    // };
-    // this.container.appendChild(testButton);
+    const testButton = document.createElement("button");
+    testButton.innerHTML = "back";
+    testButton.className = "ui yellow button testButton3";
+    testButton.onclick = () => {
+      document.body.removeChild(this.container);
+      this.user.draw();
+    };
+    this.container.appendChild(testButton);
 
     const leftDiv3 = document.createElement("div");
     leftDiv3.className = "leftDiv3";
