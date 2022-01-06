@@ -45,8 +45,7 @@ export class UserView {
 		searchDiv2.appendChild(labSearch2);
 
 		const inputSearch2 = document.createElement("input");
-		inputSearch2.className = "inputSearch2";
-		inputSearch2.className = "ui input";
+		inputSearch2.className = "inputSearch2 ui input";
 		searchDiv2.appendChild(inputSearch2);
 
 		const buttonSearch2 = document.createElement("button");
@@ -142,7 +141,7 @@ export class UserView {
 		).then((p) => {
 			p.json().then((bus) => {
 				bus.forEach((b) => {
-					const rev = new UserReview(b.name, b.review, b.rating);
+					const rev = new UserReview(b.name, b.review, b.rating, this.username);
 					let reviewCard = document.createElement("div");
 					reviewCard.className = "reviewCard";
 					rightDiv2.appendChild(reviewCard);

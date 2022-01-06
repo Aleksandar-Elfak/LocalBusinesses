@@ -1,8 +1,9 @@
 export class UserReview {
-	constructor(name, review, rating) {
+	constructor(name, review, rating, username = null) {
 		this.name = name;
 		this.review = review;
 		this.rating = rating;
+		this.username = username;
 	}
 
 	draw(host) {
@@ -20,8 +21,34 @@ export class UserReview {
 		review.className = "ui segment reviewContent2";
 		mainDiv.appendChild(review);
 
+		const bottom = document.createElement("div");
+		bottom.className = "userReviewBottom";
+		mainDiv.appendChild(bottom);
+
 		const rating = document.createElement("div");
 		rating.innerHTML = "⭐  " + this.rating;
-		mainDiv.appendChild(rating);
+		bottom.appendChild(rating);
+
+		const deleteButton = document.createElement("button");
+		deleteButton.innerHTML = "DELETE";
+		deleteButton.className = "ui button red tiny";
+		deleteButton.onclick = () => {
+			const b = document.body.querySelector(".name3");
+			let first = null;
+			let second = null;
+			if (b != null) {
+				first = this.name;
+				second = b.innerHTML;
+			} else {
+				first = this.username;
+				second = this.name;
+			}
+			fetch(
+				`https://localhost:7294/Business/DeleteReview/${first}&${second}`
+			).then((p) => {
+				host.removeChild(mainDiv);
+			});
+		};
+		bottom.appendChild(deleteButton);
 	}
 }

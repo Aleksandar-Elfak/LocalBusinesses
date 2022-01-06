@@ -1,7 +1,7 @@
 .businessView {
 	display: flex;
 	justify-content: space-around;
-	font-size: large;
+	font-size: large !important;
 }
 
 .bigDiv3 {
@@ -21,6 +21,7 @@
 
 .rightDiv3 {
 	border: 3px solid blue;
+	margin-bottom: 14px !important;
 }
 
 .div3 {
@@ -35,4 +36,19 @@
 
 .testButton3 {
 	height: fit-content;
+}
+
+.reviewInput3 {
+	background-color: rgb(253, 255, 175) !important;
+	display: flex;
+	flex-direction: column;
+}
+
+.bottomInput3 {
+	display: flex;
+	justify-content: space-between;
+}
+
+textarea {
+	resize: vertical;
 }
