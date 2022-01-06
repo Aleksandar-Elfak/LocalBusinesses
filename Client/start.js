@@ -40,12 +40,14 @@ export class Start {
 		loginDiv.appendChild(loginLine);
 
 		const lbl1 = document.createElement("label");
-		lbl1.classList = "ui label yellow";
+		lbl1.classList = "ui label yellow massive";
 		lbl1.innerHTML = "Username: ";
 		loginLine.appendChild(lbl1);
 
 		const input1 = document.createElement("input");
-		input1.className = "ui large";
+		input1.className = "ui  massive";
+		input1.style.height = "50%";
+		input1.style.alignSelf = "center";
 		loginLine.appendChild(input1);
 
 		const loginLine1 = document.createElement("div");
@@ -53,16 +55,18 @@ export class Start {
 		loginDiv.appendChild(loginLine1);
 
 		const lbl2 = document.createElement("label");
-		lbl2.classList = "ui label yellow";
+		lbl2.classList = "ui label yellow massive";
 		lbl2.innerHTML = "Password: ";
 		loginLine1.appendChild(lbl2);
 
 		const input2 = document.createElement("input");
-		input2.className = "ui large";
+		input2.className = "ui  massive";
+		input2.style.height = "50%";
+		input2.style.alignSelf = "center";
 		loginLine1.appendChild(input2);
 
 		const testButton = document.createElement("button");
-		testButton.className = "ui button yellow";
+		testButton.className = "ui button yellow massive";
 		testButton.innerHTML = "Log in";
 		testButton.onclick = () => {
 			document.body.removeChild(this.container);

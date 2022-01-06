@@ -4,7 +4,6 @@ body {
 
 .leftDiv1 {
 	display: flex;
-	border: 3px solid black;
 	flex-direction: column;
 	justify-content: space-around;
 	margin-left: 50px;
@@ -39,10 +38,15 @@ body {
 }
 
 .loginDiv1 {
-	border: 3px solid red;
 	display: flex;
 	flex-direction: column;
 	align-self: center;
+}
+
+.loginLine1 {
+	justify-content: space-between;
+	display: flex;
+	margin-bottom: 25px;
 }
 
 .img1 {
