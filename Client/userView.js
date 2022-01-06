@@ -78,7 +78,7 @@ export class UserView {
 
 							businessCardDiv2.onclick = () => {
 								document.body.removeChild(this.container);
-								let u = new BusinessView(this);
+								let u = new BusinessView(this, business.name, this.username);
 								u.draw();
 							};
 						});
@@ -121,7 +121,7 @@ export class UserView {
 
 					businessCardDiv2.onclick = () => {
 						document.body.removeChild(this.container);
-						let u = new BusinessView(this);
+						let u = new BusinessView(this, business.name, this.username);
 						u.draw();
 					};
 				});
