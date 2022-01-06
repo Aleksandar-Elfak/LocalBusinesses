@@ -54,10 +54,9 @@ namespace Server.Controllers
 
         [HttpPost]
         [Route("LogIn")]
-        public IActionResult LogIn([FromBody] User user)
+        public async Task<bool> LogIn([FromBody] User user)
         {
-            data.LogIn(user);
-            return Ok();
+            return await data.LogInAsync(user);
         }
 
         [HttpDelete]

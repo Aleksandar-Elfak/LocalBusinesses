@@ -60,18 +60,36 @@ export class Start {
 		loginLine1.appendChild(lbl2);
 
 		const input2 = document.createElement("input");
+		input2.type = "password";
 		input2.className = "ui  massive";
 		input2.style.height = "50%";
 		input2.style.alignSelf = "center";
 		loginLine1.appendChild(input2);
 
+		input1.value = "vule";
+		input2.value = "car"; //todo obrisi
+
 		const testButton = document.createElement("button");
 		testButton.className = "ui button yellow massive";
 		testButton.innerHTML = "Log in";
 		testButton.onclick = () => {
-			document.body.removeChild(this.container);
-			let u = new UserView(this, "Vule");
-			u.draw();
+			fetch(`https://localhost:7294/Business/LogIn`, {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({
+					username: input1.value,
+					password: input2.value,
+				}),
+			}).then((p) => {
+				p.json().then((a) => {
+					console.log(a);
+					if (a) {
+						document.body.removeChild(this.container);
+						let u = new UserView(this, input1.value);
+						u.draw();
+					} else alert("Wrong password.");
+				});
+			});
 		};
 		loginDiv.appendChild(testButton);
 

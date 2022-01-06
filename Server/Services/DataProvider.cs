@@ -23,9 +23,19 @@ namespace Server.Services
             return b;
         }
 
-        public void LogIn(User user)
+        public async Task<bool> LogInAsync(User user)
         {
-            Session.RunAsync($"Merge (u:User {{username: '{user.Username}', password: '{user.Password}'}})");
+            try
+            {
+                var list = await (await Session.RunAsync($"Merge (u:User {{username: '{user.Username}', password: '{user.Password}'}})  return u")).ToListAsync();
+
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+            return true;
         }
 
         public async void Review(string username, string business, Review r)
