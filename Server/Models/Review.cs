@@ -8,5 +8,6 @@ namespace Server.Models
         public string? review { get; set; }
         [Neo4jProperty(Name = "rating")]
         public double Rating { get; set; }
+        public string? Name { get; set; }
     }
 }

@@ -50,13 +50,26 @@ namespace Server.Services
             Session.RunAsync($"MATCH ()-[r:Reviewed]->(b:Business) where b.name = '{name}' with b, avg(r.rating) as d set b.rating = d");
         }
 
-        public async Task<List<Review>> GetReviews(string name)
+        public async Task<List<Review>> GetUsernameReviews(string username)
         {
             List<Review> reviews = new List<Review>();
-            var list = await (await Session.RunAsync($"Match (u:User)-[r:Reviewed]->() where u.username = '{name}' return r limit 5")).ToListAsync();
+            var list = await (await Session.RunAsync($"Match (u:User)-[r:Reviewed]->(b:Business) where u.username = '{username}' return r, b.name limit 5")).ToListAsync();
             foreach (var item in list)
             {
                 reviews.Add(item["r"].As<IRelationship>().ToObject<Review>());
+                reviews.Last<Review>().Name = item["b.name"].As<string>();
+            }
+            return reviews;
+        }
+
+        public async Task<List<Review>> GetBusinessReviews(string name)
+        {
+            List<Review> reviews = new List<Review>();
+            var list = await (await Session.RunAsync($"Match (u:User)-[r:Reviewed]->(b:Business) where b.name = '{name}' return r, u.username limit 5")).ToListAsync();
+            foreach (var item in list)
+            {
+                reviews.Add(item["r"].As<IRelationship>().ToObject<Review>());
+                reviews.Last<Review>().Name = item["u.username"].As<string>();
             }
             return reviews;
         }

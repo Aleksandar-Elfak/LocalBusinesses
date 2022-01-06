@@ -31,10 +31,17 @@ namespace Server.Controllers
         }
 
         [HttpGet]
-        [Route("GetReviews/{username}")]
-        public async Task<List<Review>> GetReviews(string username)
+        [Route("GetUsernameReviews/{username}")]
+        public async Task<List<Review>> GetUsernameReviews(string username)
         {
-            return await data.GetReviews(username);
+            return await data.GetUsernameReviews(username);
+        }
+
+        [HttpGet]
+        [Route("GetBusinessReviews/{name}")]
+        public async Task<List<Review>> GetBusinessReviews(string name)
+        {
+            return await data.GetBusinessReviews(name);
         }
 
         [HttpGet]
