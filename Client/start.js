@@ -66,13 +66,14 @@ export class Start {
 		input2.style.alignSelf = "center";
 		loginLine1.appendChild(input2);
 
-		input1.value = "vule";
-		input2.value = "car"; //todo obrisi
-
 		const testButton = document.createElement("button");
 		testButton.className = "ui button yellow massive";
 		testButton.innerHTML = "Log in";
 		testButton.onclick = () => {
+			if (input1.value == "" || input2.value == "") {
+				alert("input Login info.");
+				return;
+			}
 			fetch(`https://localhost:7294/Business/LogIn`, {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
