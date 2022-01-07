@@ -29,7 +29,7 @@ export class UserReview {
 		rating.innerHTML = "⭐  " + this.rating;
 		bottom.appendChild(rating);
 
-		const b = document.body.querySelector(".name3");
+		const b = document.body.querySelector(".bigDiv3");
 
 		const deleteButton = document.createElement("button");
 		deleteButton.innerHTML = "DELETE";
