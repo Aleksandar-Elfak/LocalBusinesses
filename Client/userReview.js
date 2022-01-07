@@ -29,26 +29,29 @@ export class UserReview {
 		rating.innerHTML = "⭐  " + this.rating;
 		bottom.appendChild(rating);
 
+		const b = document.body.querySelector(".name3");
+
 		const deleteButton = document.createElement("button");
 		deleteButton.innerHTML = "DELETE";
 		deleteButton.className = "ui button red tiny";
+		if (b != null) deleteButton.className = "hidden2";
+
 		deleteButton.onclick = () => {
-			const b = document.body.querySelector(".name3");
 			let first = null;
 			let second = null;
-			if (b != null) {
+			if (b == null) {
 				first = this.name;
 				second = b.innerHTML;
-			} else {
-				first = this.username;
-				second = this.name;
+				fetch(
+					`https://localhost:7294/Business/DeleteReview/${first}&${second}`,
+					{
+						method: "DELETE",
+						headers: { "Content-Type": "application/json" },
+					}
+				).then((p) => {
+					host.removeChild(mainDiv);
+				});
 			}
-			fetch(`https://localhost:7294/Business/DeleteReview/${first}&${second}`, {
-				method: "DELETE",
-				headers: { "Content-Type": "application/json" },
-			}).then((p) => {
-				host.removeChild(mainDiv);
-			});
 		};
 		bottom.appendChild(deleteButton);
 	}

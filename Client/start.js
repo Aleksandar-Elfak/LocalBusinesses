@@ -93,6 +93,13 @@ export class Start {
 		};
 		loginDiv.appendChild(testButton);
 
+		input2.addEventListener("keydown", (event) => {
+			if (event.key === "Enter") {
+				event.preventDefault();
+				testButton.click();
+			}
+		});
+
 		const right = document.createElement("div");
 		right.className = "rightDiv1";
 		right.style.height = window.innerHeight;

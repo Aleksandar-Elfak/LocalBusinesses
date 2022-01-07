@@ -97,7 +97,7 @@ namespace Server.Services
         public async Task<List<Business>> GetRecommended(string username)
         {
             List<Business> businesses = new List<Business>();
-            var list = await (await Session.RunAsync($"Match (u:User)-[v:Visited]->(b:Business) where u.username = '{username}' return b order by b.rating desc limit 5")).ToListAsync();
+            var list = await (await Session.RunAsync($"Match (u:User)-[v:Visited]->(b:Business) where u.username = '{username}' return b order by v.visits desc limit 5")).ToListAsync();
             if (list.Count == 0)
                 list = await (await Session.RunAsync($"Match (b:Business) return b order by b.rating desc limit 5")).ToListAsync();
             foreach (var item in list)
@@ -110,6 +110,7 @@ namespace Server.Services
         public void DeleteReview(string username, string name)
         {
             Session.RunAsync($"MATCH(n {{ username: '{username}'}})-[r: Reviewed]->(b: Business {{ name: '{name}'}}) DELETE r");
+            ReRate(name);
         }
     }
 }
