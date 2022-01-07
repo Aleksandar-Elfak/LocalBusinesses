@@ -38,16 +38,25 @@ namespace Server.Services
             return true;
         }
 
-        public async void Review(string username, string business, Review r)
+        public async Task<bool> Review(string username, string business, Review r)
         {
-            await Session.RunAsync($"Match (b:Business) where b.name = '{business}' merge(u: User {{ username: '{username}'}})" + 
-                $"merge(u)-[r: Reviewed]->(b) set r.review = '{r.review}' set r.rating = { r.Rating}");
-            ReRate(business);
+            try
+            {
+                await Session.RunAsync($"Match (b:Business) where b.name = '{business}' merge(u: User {{ username: '{username}'}})" +
+                    $"merge(u)-[r: Reviewed]->(b) set r.review = '{r.review}' set r.rating = { r.Rating}");
+                ReRate(business);
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return true;
         }
 
-        public void ReRate(string name)
+        public async void ReRate(string name)
         {
-            Session.RunAsync($"MATCH ()-[r:Reviewed]->(b:Business) where b.name = '{name}' with b, avg(r.rating) as d set b.rating = d");
+            await Session.RunAsync($"MATCH ()-[r:Reviewed]->(b:Business) where b.name = '{name}' with b, avg(r.rating) as d set b.rating = d");
         }
 
         public async Task<List<Review>> GetUsernameReviews(string username)

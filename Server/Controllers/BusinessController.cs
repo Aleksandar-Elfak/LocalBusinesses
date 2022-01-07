@@ -53,9 +53,9 @@ namespace Server.Controllers
 
         [HttpPost]
         [Route("Review/{username}&{name}")]
-        public IActionResult Review([FromBody] Review r, string username, string name)
+        public async Task<IActionResult> ReviewAsync([FromBody] Review r, string username, string name)
         {
-            data.Review(username, name, r);
+            await data.Review(username, name, r);
             return Ok();
         }
 

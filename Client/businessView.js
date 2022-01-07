@@ -175,7 +175,6 @@ export class BusinessView {
 				}
 			)
 				.then((p) => {
-					console.log(p.ok);
 					if (p.ok) {
 						const rightDiv3 = document.body.querySelector(".rightDiv3");
 						while (rightDiv3.firstChild) {

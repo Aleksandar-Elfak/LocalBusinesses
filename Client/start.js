@@ -82,7 +82,6 @@ export class Start {
 				}),
 			}).then((p) => {
 				p.json().then((a) => {
-					console.log(a);
 					if (a) {
 						document.body.removeChild(this.container);
 						let u = new UserView(this, input1.value);
