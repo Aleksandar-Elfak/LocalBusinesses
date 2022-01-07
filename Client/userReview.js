@@ -37,13 +37,9 @@ export class UserReview {
 		if (b != null) deleteButton.className = "hidden2";
 
 		deleteButton.onclick = () => {
-			let first = null;
-			let second = null;
 			if (b == null) {
-				first = this.name;
-				second = b.innerHTML;
 				fetch(
-					`https://localhost:7294/Business/DeleteReview/${first}&${second}`,
+					`https://localhost:7294/Business/DeleteReview/${this.username}&${this.name}`,
 					{
 						method: "DELETE",
 						headers: { "Content-Type": "application/json" },
