@@ -9,4 +9,4 @@ Search vrsi pretragu po tagovima. Neki od njih su: construction, car, hair, beau
 Na profilu korisnika u **Reviews** su prikazane recenzije tog korisnika, a na stranici biznisa su prikazane recenzije tog biznisa kao i mogucnost ostavljanja nove recenzije.
 
 **Upozorenje**
-Baza je u cloudu i postoji mogucnost da ce da se pauzira. Ukoliko projekat ne moze da se konektuje sa bazom posaljite nam poruku na teamsu na profilu Aleksandar Filipovic (aleksandarfilipovci) 17508
+Baza je u cloudu i postoji mogucnost da ce da se pauzira posto je baza besplatna. Ukoliko projekat ne moze da se konektuje sa bazom posaljite nam poruku na teamsu na profilu Aleksandar Filipovic (aleksandarfilipovci) 17508
